@@ -6,11 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
+  
+  //getting updated with every keypress
   term = '';
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onFormSubmit(e: any) {
+    //prevent form submission with preventDefault()
+    e.preventDefault();
+    console.log(this.term)
+  }
+
 
   // 2. Using a method to update
   // onInput(e: string) {

@@ -3,5 +3,8 @@
 
 
 <!-- Direct term property update- this updates the term property directly in the class -->
-<input (input)="term = $event.target.value" />
+<form (submit)="onFormSubmit($event)">
+  <input (input)="term = $event.target.value" />
+</form>
+
 
