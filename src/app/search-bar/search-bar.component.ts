@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  
+  //child to parent communication 1: 
+  // sending data back up to parent via function 'submitted' which is an instance of EventEmitter
+  @Output() submitted = new EventEmitter<string>();
+
+
   //getting updated with every keypress
   term = '';
   constructor() { }
@@ -14,10 +18,12 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //child to parent communication 2: 
   onFormSubmit(e: any) {
     //prevent form submission with preventDefault()
     e.preventDefault();
     console.log(this.term)
+    return(this.submitted.emit(this.term));
   }
 
 
