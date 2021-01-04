@@ -1,6 +1,7 @@
 <!-- //child to parent communication 3:  -->
 <!-- watch for the submitted event and when that occurs, run the onTerm() method and pass it the event. see app.component.ts-->
 <app-search-bar (submitted)="onTerm($event)"></app-search-bar>
-<app-page-list></app-page-list>
+<!-- passing down pages data from the app.component to pageList in the page-list component -->
+<app-page-list [pageList]="pages"></app-page-list>
 
 

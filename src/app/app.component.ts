@@ -7,13 +7,12 @@ import { WikipediaService } from './wikipedia.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  pages = []
+
   // 2 Adding Service:
   // constructor is the first thing to be call whenever instance of AppComponent is created
   constructor(private wikipedia: WikipediaService) {
-
   }
-
-
 
   title = 'wikipediasearch';
   //child to parent communication 4: 
@@ -23,8 +22,10 @@ export class AppComponent {
   
   // 3 Adding Service:
   // access the instance of wikipedia and call the search method on it
-    this.wikipedia.search(term).subscribe((res) => {
+    this.wikipedia.search(term).subscribe((res: any) => {
       console.log(res)
+      //see console.log for response property, query property, search property
+      this.pages = res.query.search;
     })
   }
 }
