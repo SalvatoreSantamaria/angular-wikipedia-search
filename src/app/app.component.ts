@@ -23,7 +23,8 @@ export class AppComponent {
   
   // 3 Adding Service:
   // access the instance of wikipedia and call the search method on it
-    let result = this.wikipedia.search(term)
-    console.log(result)
+    this.wikipedia.search(term).subscribe((res) => {
+      console.log(res)
+    })
   }
 }
