@@ -1,2 +1,19 @@
 <p>page-list works!</p>
 {{ pageList.length }}
+
+<table class="table is-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Count</th>
+      <th>Snippet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of pageList">
+      <td>{{p.title}}</td>
+      <td>{{p.wordcount}}</td>
+      <td>{{p.snippet}}</td>
+    </tr>
+  </tbody>
+</table>
